@@ -8,6 +8,5 @@ public class Main {
 
         new Day01().solve();
         new Day02().solve();
-
     }
 }
