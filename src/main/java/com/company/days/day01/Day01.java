@@ -1,9 +1,13 @@
-package com.company.days;
+package com.company.days.day01;
+
+import com.company.days.BaseDay;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Component
 public class Day01 extends BaseDay {
 
 
@@ -16,8 +20,7 @@ public class Day01 extends BaseDay {
     public Object solvePartOne() {
 
         List<Integer> collect = getInput().stream()
-                .map(Integer::parseInt)
-                .collect(Collectors.toList());
+                .map(Integer::parseInt).toList();
 
         int counter = 0;
 

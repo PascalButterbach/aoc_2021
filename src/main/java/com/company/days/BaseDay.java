@@ -1,8 +1,9 @@
 package com.company.days;
 
-import lombok.Getter;
 import lombok.SneakyThrows;
 import org.apache.commons.io.IOUtils;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -11,17 +12,24 @@ import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-@Getter
-public abstract class BaseDay {
+public abstract class BaseDay implements CommandLineRunner {
 
-    private final List<String> input;
+    private List<String> input;
+
+    private int day;
+    private boolean test = false;
+
     private String headerText = "";
 
     public BaseDay(int day) {
-        headerText = "#####[]--- DAY " + day + " ---[]#####";
-        this.input = read(day);
+        this.day = day;
+        headerText = "#####[]--- DAY " + this.day + " ---[]#####";
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+        solve();
+    }
 
     public void solve() {
         System.out.println(headerText);
@@ -43,12 +51,26 @@ public abstract class BaseDay {
 
     }
 
+    public List<String> getInput() {
+        if (input == null) {
+            this.input = read();
+        }
+
+        return input;
+    }
+
+    public BaseDay asTest(){
+
+        this.test = true;
+        return this;
+    }
 
     @SneakyThrows
-    public static List<String> read(int day) {
+    public List<String> read() {
 
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        InputStream inputStream = classLoader.getResourceAsStream(String.format("day_%s.txt", day));
+        String fileName = String.format((test ? "day_%s_test" : "day_%s"), this.day);
+        InputStream inputStream = classLoader.getResourceAsStream(fileName);
 
         return IOUtils.readLines(Objects.requireNonNull(inputStream), StandardCharsets.UTF_8);
     }
