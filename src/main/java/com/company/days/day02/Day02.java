@@ -3,6 +3,7 @@ package com.company.days.day02;
 import com.company.days.BaseDay;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,30 @@ public class Day02 extends BaseDay {
     @Override
     public Object solvePartTwo() {
 
-        return null;
+        var inputValues = getInput().stream()
+                .map(s -> s.split(" "))
+                .map(s -> new Object() {
+                    final String action = s[0];
+                    final int value = Integer.parseInt(s[1]);
+                }).toList();
+
+        var value = new Object() {
+            int horizontalPosition = 0;
+            int depth = 0;
+            int aim = 0;
+        };
+
+        inputValues.forEach(i -> {
+            switch (i.action) {
+                case "forward" -> {
+                    value.horizontalPosition += i.value;
+                    value.depth += (value.aim * i.value);
+                }
+                case "down" -> value.aim += i.value;
+                case "up" -> value.aim -= i.value;
+            }
+        });
+
+        return value.horizontalPosition * value.depth;
     }
 }

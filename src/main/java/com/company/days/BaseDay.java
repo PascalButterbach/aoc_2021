@@ -37,7 +37,7 @@ public abstract class BaseDay implements CommandLineRunner {
         Object partOne = solvePartOne();
         long endPartOne = System.nanoTime();
 
-        System.out.println(MessageFormat.format("-==[ Result Part One [{0}] Elapsed time: [{1} ms] ]==-",
+        System.out.println(MessageFormat.format("-==[ Result Part One [{0,number,#}] Elapsed time: [{1} ms] ]==-",
                 partOne,
                 TimeUnit.NANOSECONDS.toMicros(endPartOne - startPartOne)));
 
@@ -45,7 +45,7 @@ public abstract class BaseDay implements CommandLineRunner {
         Object partTwo = solvePartTwo();
         long endPartTwo = System.nanoTime();
 
-        System.out.println(MessageFormat.format("-==[ Result Part Two [{0}] Elapsed time: [{1} ms] ]==-",
+        System.out.println(MessageFormat.format("-==[ Result Part Two [{0,number,#}] Elapsed time: [{1} ms] ]==-",
                 partTwo,
                 TimeUnit.NANOSECONDS.toMicros(endPartTwo - startPartTwo)));
 
