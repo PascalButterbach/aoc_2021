@@ -1,6 +1,6 @@
-package com.company.days.day05;
+package org.butterbach.days.day05;
 
-import com.company.days.BaseDay;
+import org.butterbach.days.BaseDay;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;

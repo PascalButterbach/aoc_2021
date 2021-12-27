@@ -1,9 +1,8 @@
-package com.company.days.day02;
+package org.butterbach.days.day02;
 
-import com.company.days.BaseDay;
+import org.butterbach.days.BaseDay;
 import org.springframework.stereotype.Component;
 
-import java.math.BigInteger;
 import java.util.Map;
 import java.util.stream.Collectors;
 

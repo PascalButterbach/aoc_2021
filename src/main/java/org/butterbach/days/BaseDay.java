@@ -1,9 +1,8 @@
-package com.company.days;
+package org.butterbach.days;
 
 import lombok.SneakyThrows;
 import org.apache.commons.io.IOUtils;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
@@ -45,7 +44,7 @@ public abstract class BaseDay implements CommandLineRunner {
         Object partTwo = solvePartTwo();
         long endPartTwo = System.nanoTime();
 
-        System.out.println(MessageFormat.format("-==[ Result Part Two [{0,number,#}] Elapsed time: [{1} ms] ]==-",
+        System.out.println(MessageFormat.format("-==[ Result Part Two [{0,number,#}] Elapsed time: [{1} ms] ]==-\n",
                 partTwo,
                 TimeUnit.NANOSECONDS.toMicros(endPartTwo - startPartTwo)));
 

@@ -1,4 +1,4 @@
-package com.company;
+package org.butterbach;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

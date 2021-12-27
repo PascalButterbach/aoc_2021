@@ -1,4 +1,4 @@
-package com.company.days.day05;
+package org.butterbach.days.day05;
 
 import java.awt.*;
 import java.util.ArrayList;
